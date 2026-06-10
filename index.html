@@ -80,6 +80,68 @@
         .stat-item h2 { font-size: 2.8rem; color: var(--secondary); font-family: 'Montserrat'; font-weight: 800; }
         .stat-item p { text-transform: uppercase; font-size: 0.75rem; letter-spacing: 2px; opacity: 0.7; }
 
+        /* --- SECCIÓN: Promociones Dinámicas --- */
+        .promotions { padding: 100px 8%; background: var(--white); text-align: center; display: none; }
+        .promotions-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 40px; 
+            margin-top: 50px; 
+            justify-content: center;
+        }
+        .promo-card {
+            background: var(--soft-gray);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            cursor: pointer;
+            position: relative;
+            border: 1px solid rgba(0, 70, 145, 0.05);
+        }
+        .promo-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 70, 145, 0.12);
+        }
+        .promo-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: 0.4s;
+        }
+        .promo-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(11, 26, 51, 0.0), rgba(11, 26, 51, 0.85));
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding: 30px;
+            opacity: 0;
+            transition: 0.4s;
+        }
+        .promo-card:hover .promo-overlay { opacity: 1; }
+        
+        /* Botón de la promo modificado (Blanco y Transparente) */
+        .promo-btn {
+            background: rgba(255, 255, 255, 0.15);
+            color: var(--white);
+            padding: 12px 25px;
+            border: 2px solid var(--white);
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            transition: 0.3s;
+        }
+        .promo-card:hover .promo-btn {
+            background: var(--white);
+            color: var(--dark-navy);
+        }
+
         /* --- Sectores --- */
         .sectors { padding: 100px 8%; text-align: center; }
         .sectors-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-top: 50px; }
@@ -104,14 +166,42 @@
         .step { position: relative; padding: 20px; }
         .step-num { font-size: 5rem; font-weight: 900; color: rgba(0, 70, 145, 0.05); position: absolute; top: -20px; left: 50%; transform: translateX(-50%); }
 
-        /* --- WhatsApp Flotante --- */
+        /* --- WhatsApp Flotante (Corregido sin líneas, franjas ni bordes extraños) --- */
         .wa-float { 
-            position: fixed; bottom: 30px; right: 30px; background: #25d366; 
-            color: white; width: 65px; height: 65px; border-radius: 50%; 
-            display: flex; align-items: center; justify-content: center; 
-            font-size: 2.2rem; box-shadow: 0 10px 25px rgba(0,0,0,0.2); z-index: 1000; transition: 0.3s;
+            position: fixed; 
+            bottom: 30px; 
+            right: 30px; 
+            background: rgba(11, 26, 51, 0.6); 
+            color: var(--white); 
+            width: 65px; 
+            height: 65px; 
+            border-radius: 50%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-size: 2.2rem; 
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3); 
+            z-index: 1000; 
+            transition: 0.3s;
+            text-decoration: none !important; /* Elimina cualquier subrayado heredado del navegador */
+            outline: none;
         }
-        .wa-float:hover { transform: scale(1.1); }
+        .wa-float i {
+            display: block;
+            text-decoration: none !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+        .wa-float:hover { 
+            transform: scale(1.1); 
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--dark-navy);
+            border-color: var(--white);
+            text-decoration: none !important;
+        }
 
         /* --- Footer --- */
         footer { background: var(--deep-black); color: white; padding: 80px 8% 30px; }
@@ -155,6 +245,7 @@
     <nav>
         <div class="logo"><img src="logo.png" alt="IMPETEC"></div>
         <div class="nav-links">
+            <a href="#promos-section">Promociones</a>
             <a href="#servicios">Ingeniería</a>
             <a href="#proceso">Proceso</a>
             <a href="CATALOGO IMPETEC 2025.pdf" target="_blank">Catálogo</a>
@@ -179,6 +270,16 @@
         <div class="stat-item"><h2>+500</h2><p>Proyectos Instalados</p></div>
         <div class="stat-item"><h2>100%</h2><p>Garantía de Continuidad</p></div>
         <div class="stat-item"><h2>IA</h2><p>Tecnología Predictiva</p></div>
+    </section>
+
+    <section class="promotions" id="promos-section">
+        <div class="section-header">
+            <span style="color: var(--primary); font-weight: 700; letter-spacing: 2px;">OPORTUNIDADES DE INFRAESTRUCTURA</span>
+            <h2>Promociones Exclusivas</h2>
+            <p>Maximice el retorno de su inversión con nuestras soluciones vigentes.</p>
+        </div>
+        <div class="promotions-grid" id="promos-container">
+            </div>
     </section>
 
     <section class="sectors">
@@ -250,7 +351,7 @@
         </div>
     </section>
 
-    <a href="https://wa.me/524776767350?text=Hola%20IMPETEC,%20necesito%20una%20asesoría%20especializada%20para%20un%20proyecto%20de%20tecnología." class="wa-float">
+    <a href="https://wa.me/524776767350?text=Hola%20IMPETEC,%20necesito%20una%20asesoría%20especializada%20para%20un%20proyecto%20de%20tecnología." class="wa-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -283,6 +384,61 @@
             &copy; 2026 IMPETEC. Todos los derechos reservados.
         </div>
     </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const container = document.getElementById("promos-container");
+            const section = document.getElementById("promos-section");
+            const whatsappBase = "https://wa.me/524776767350?text=";
+            
+            const basePageUrl = window.location.origin + window.location.pathname.replace('index.html', '');
+            
+            let currentPromoIndex = 1;
+            let loadedCount = 0;
+
+            function checkNextPromo() {
+                const img = new Image();
+                const filename = `promo${currentPromoIndex}.png`;
+                
+                img.onload = function() {
+                    const absoluteImgUrl = basePageUrl + filename;
+                    const textMessage = `Hola IMPETEC, me interesa esta promoción: ${absoluteImgUrl}`;
+                    const encodedMessage = encodeURIComponent(textMessage);
+
+                    const card = document.createElement("div");
+                    card.className = "promo-card";
+                    card.onclick = function() {
+                        window.open(whatsappBase + encodedMessage, '_blank');
+                    };
+
+                    card.innerHTML = `
+                        <img src="${filename}" alt="Promoción IMPETEC">
+                        <div class="promo-overlay">
+                            <div class="promo-btn"><i class="fab fa-whatsapp"></i> Me interesa</div>
+                        </div>
+                    `;
+
+                    container.appendChild(card);
+                    loadedCount++;
+                    
+                    if (loadedCount > 0) {
+                        section.style.display = "block";
+                    }
+
+                    currentPromoIndex++;
+                    checkNextPromo();
+                };
+
+                img.onerror = function() {
+                    console.log(`Búsqueda de promos finalizada. Se cargaron: ${loadedCount} imágenes.`);
+                };
+
+                img.src = filename;
+            }
+
+            checkNextPromo();
+        });
+    </script>
 
 </body>
 </html>
