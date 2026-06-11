@@ -152,13 +152,16 @@
         .services { padding: 100px 8%; background: var(--soft-gray); }
         .section-header { text-align: center; margin-bottom: 70px; }
         .section-header h2 { font-family: 'Montserrat'; font-size: 2.5rem; color: var(--dark-navy); font-weight: 800; }
-        .grid-services { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .grid-services { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
         .s-card { 
-            background: white; padding: 50px; border-radius: 4px; transition: 0.4s; 
+            background: white; padding: 40px 30px; border-radius: 4px; transition: 0.4s; 
             border-bottom: 4px solid var(--primary); box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            display: flex; flex-direction: column; justify-content: space-between;
         }
         .s-card:hover { transform: translateY(-10px); border-bottom-color: var(--secondary); }
         .s-card i { font-size: 3rem; color: var(--secondary); margin-bottom: 25px; }
+        .s-card h3 { font-family: 'Montserrat'; margin-bottom: 15px; font-size: 1.25rem; color: var(--dark-navy); }
+        .s-card p { font-size: 0.9rem; margin-bottom: 20px; }
 
         /* --- Metodología --- */
         .process { padding: 100px 8%; background: white; text-align: center; }
@@ -289,9 +292,9 @@
         </div>
         <div class="sectors-grid">
             <div class="sector-item"><i class="fas fa-industry"></i><h4>Industrial & Logística</h4></div>
-            <div class="sector-item"><i class="fas fa-building"></i><h4>Corporativos</h4></div>
+            <div class="sector-item"><i class="fas fa-building"></i><h4>Corporativos & Oficinas</h4></div>
             <div class="sector-item"><i class="fas fa-shopping-cart"></i><h4>Retail & Comercio</h4></div>
-            <div class="sector-item"><i class="fas fa-home"></i><h4>Residencial</h4></div>
+            <div class="sector-item"><i class="fas fa-id-card-clip"></i><h4>Control de Accesos</h4></div>
         </div>
     </section>
 
@@ -302,21 +305,35 @@
         </div>
         <div class="grid-services">
             <div class="s-card">
-                <i class="fas fa-video"></i>
-                <h3>CCTV & Inteligencia IA</h3>
-                <p>Implementación de analítica avanzada: cruce de línea, reconocimiento facial y visión nocturna ColorVu.</p>
+                <div>
+                    <i class="fas fa-video"></i>
+                    <h3>CCTV & Inteligencia IA</h3>
+                    <p>Implementación de analítica avanzada: cruce de línea, reconocimiento facial y visión nocturna ColorVu.</p>
+                </div>
                 <a href="servicios.html#cctv" style="color: var(--primary); font-weight: 700; text-decoration: none; font-size: 0.8rem; letter-spacing: 1px;">EXPLORAR CCTV →</a>
             </div>
             <div class="s-card">
-                <i class="fas fa-satellite-dish"></i>
-                <h3>Telemetría GPS</h3>
-                <p>Gestión inteligente de flotas con monitoreo de combustible, rutas críticas y paro de motor preventivo.</p>
+                <div>
+                    <i class="fas fa-fingerprint"></i>
+                    <h3>Control de Acceso & Biometría</h3>
+                    <p>Sistemas integrados de reconocimiento facial, huella digital, torniquetes y exclusas para la restricción segura de áreas críticas.</p>
+                </div>
+                <a href="servicios.html#acceso" style="color: var(--primary); font-weight: 700; text-decoration: none; font-size: 0.8rem; letter-spacing: 1px;">CONTROL DE ACCESO →</a>
+            </div>
+            <div class="s-card">
+                <div>
+                    <i class="fas fa-satellite-dish"></i>
+                    <h3>Telemetría GPS</h3>
+                    <p>Gestión inteligente de flotas con monitoreo de combustible, rutas críticas y paro de motor preventivo.</p>
+                </div>
                 <a href="servicios.html#gps" style="color: var(--primary); font-weight: 700; text-decoration: none; font-size: 0.8rem; letter-spacing: 1px;">GESTIÓN DE FLOTAS →</a>
             </div>
             <div class="s-card">
-                <i class="fas fa-server"></i>
-                <h3>Infraestructura TI</h3>
-                <p>Cableado estructurado certificado, fibra óptica y enlaces inalámbricos para garantizar conectividad total.</p>
+                <div>
+                    <i class="fas fa-server"></i>
+                    <h3>Infraestructura TI</h3>
+                    <p>Cableado estructurado certificado, fibra óptica y enlaces inalámbricos para garantizar conectividad total.</p>
+                </div>
                 <a href="servicios.html#redes" style="color: var(--primary); font-weight: 700; text-decoration: none; font-size: 0.8rem; letter-spacing: 1px;">INGENIERÍA DE REDES →</a>
             </div>
         </div>
@@ -371,7 +388,7 @@
                 <a href="#servicios">Servicios</a>
                 <a href="#proceso">Metodología</a>
                 <a href="CATALOGO IMPETEC 2025.pdf" target="_blank">Catálogo</a>
-                <a href="#">Aviso de Privacidad</a>
+                <a href="Aviso_de_Privacidad_IMPETEC_V (1).pdf" target="_blank">Aviso de Privacidad</a>
             </div>
             <div class="f-col">
                 <h4>Contacto Industrial</h4>
